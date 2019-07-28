@@ -17,7 +17,7 @@ class HistoriesControllerTest < ActionDispatch::IntegrationTest
 
   test "should create history" do
     assert_difference('History.count') do
-      post histories_url, params: { history: { deadline: @history.deadline, description: @history.description, finished_at: @history.finished_at, name: @history.name, points: @history.points, project: @history.project, status: @history.status, user_id: @history.user_id } }
+      post histories_url, params: { history: { deadline: @history.deadline, description: @history.description, finished_at: @history.finished_at, name: @history.name, points: @history.points, projeto: @history.projeto, status: @history.status, user_id: @history.user_id } }
     end
 
     assert_redirected_to history_url(History.last)
@@ -34,7 +34,7 @@ class HistoriesControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update history" do
-    patch history_url(@history), params: { history: { deadline: @history.deadline, description: @history.description, finished_at: @history.finished_at, name: @history.name, points: @history.points, project: @history.project, status: @history.status, user_id: @history.user_id } }
+    patch history_url(@history), params: { history: { deadline: @history.deadline, description: @history.description, finished_at: @history.finished_at, name: @history.name, points: @history.points, projeto: @history.projeto, status: @history.status, user_id: @history.user_id } }
     assert_redirected_to history_url(@history)
   end
 

@@ -21,6 +21,7 @@ class ProjetosController < ApplicationController
 
   # GET /projetos/1/edit
   def edit
+    c
   end
 
   # POST /projetos

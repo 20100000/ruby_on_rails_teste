@@ -33,7 +33,7 @@
     <%= f.label :projeto_id, :class => 'control-label col-lg-2' %>
     <div class="col-lg-10">
       <%#= f.text_field :projeto_id, :class => 'form-control' %>
-      <%= f.collection_select :projeto_id, @projects, :id ,:name, { include_blank: true }, { class: "form-control " } %><br/>
+      <%= f.collection_select :projeto_id, @projects, :id ,:name, { include_blank: true }, { class: "form-control " } %>
 
     </div>
     <%=f.error_span(:projeto_id) %>

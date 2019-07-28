@@ -3,7 +3,7 @@
 one:
   name: MyString
   user: one
-  project: 
+  projeto: 
   status: MyString
   description: MyString
   points: 1
@@ -13,7 +13,7 @@ one:
 two:
   name: MyString
   user: two
-  project: 
+  projeto: 
   status: MyString
   description: MyString
   points: 1

@@ -14,6 +14,8 @@ class HistoriesController < ApplicationController
   # GET /histories/1
   # GET /histories/1.json
   def show
+    @projects = Projeto.all
+    @users = User.all
   end
 
   # GET /histories/new
@@ -25,11 +27,15 @@ class HistoriesController < ApplicationController
 
   # GET /histories/1/edit
   def edit
+    @projects = Projeto.all
+    @users = User.all
   end
 
   # POST /histories
   # POST /histories.json
   def create
+    @projects = Projeto.all
+    @users = User.all
     @history = History.new(history_params)
     @history.status = 'pending'
 
@@ -76,6 +82,6 @@ class HistoriesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def history_params
-      params.require(:history).permit(:name, :user_id, :project, :status, :description, :points, :finished_at, :deadline)
+      params.require(:history).permit(:name, :user_id, :projeto_id, :status, :description, :points, :finished_at, :deadline)
     end
 end
