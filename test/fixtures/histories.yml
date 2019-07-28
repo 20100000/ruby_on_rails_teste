@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  user: one
+  project: 
+  status: MyString
+  description: MyString
+  points: 1
+  finished_at: 2019-07-28 13:07:05
+  deadline: 2019-07-28 13:07:05
+
+two:
+  name: MyString
+  user: two
+  project: 
+  status: MyString
+  description: MyString
+  points: 1
+  finished_at: 2019-07-28 13:07:05
+  deadline: 2019-07-28 13:07:05

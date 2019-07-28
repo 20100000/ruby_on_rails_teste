@@ -1,0 +1,33 @@
+<%- model_class = History -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human.titleize %></h1>
+</div>
+
+<dl class="dl-horizontal">
+  <dt><strong><%= model_class.human_attribute_name(:name) %>:</strong></dt>
+  <dd><%= @history.name %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:user_id) %>:</strong></dt>
+  <dd><%= @history.user_id %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:projeto_id) %>:</strong></dt>
+  <dd><%= @history.projeto_id %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:status) %>:</strong></dt>
+  <dd><%= @history.status %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:description) %>:</strong></dt>
+  <dd><%= @history.description %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:points) %>:</strong></dt>
+  <dd><%= @history.points %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:finished_at) %>:</strong></dt>
+  <dd><%= @history.finished_at %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:deadline) %>:</strong></dt>
+  <dd><%= @history.deadline %></dd>
+</dl>
+
+<%= link_to t('.back', :default => t("helpers.links.back")),
+              histories_path, :class => 'btn btn-default'  %>
+<%= link_to t('.edit', :default => t("helpers.links.edit")),
+              edit_history_path(@history), :class => 'btn btn-default' %>
+<%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+              history_path(@history),
+              :method => 'delete',
+              :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+              :class => 'btn btn-danger' %>
