@@ -1,5 +1,5 @@
 class HistoriesController < ApplicationController
-  before_action :set_history, only: [:show, :edit, :update, :destroy]
+  before_action :set_history, only: [:show, :edit, :update, :destroy, :nextStatus]
 
   # GET /histories
   # GET /histories.json
@@ -16,6 +16,22 @@ class HistoriesController < ApplicationController
   def show
     @projects = Projeto.all
     @users = User.all
+  end
+
+  # GET /histories/nextStatus/1
+  def nextStatus
+    @id = params[:id]
+    @history =  History.find(@id)
+
+    puts @history
+    if @history.status == 'pending'
+      @history.update(:status => 'started')
+    elsif @history.status =='started'
+      @history.update(:status => 'delivered')
+    elsif @history.status =='delivered'
+      @history.update(:status => 'accepted')
+    end
+    redirect_to action: "index"
   end
 
   # GET /histories/new
@@ -82,6 +98,6 @@ class HistoriesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def history_params
-      params.require(:history).permit(:name, :user_id, :projeto_id, :status, :description, :points, :finished_at, :deadline)
+      params.require(:history).permit(:name, :user_id, :projeto_id, :status, :description, :points, :finished_at, :deadline, :id)
     end
 end

@@ -50,6 +50,7 @@
           <ul class="nav navbar-nav">
             <li><%= link_to "Project", "/projetos"  %></li>
             <li><%= link_to "Kamban", "/histories"  %></li>
+            <li><%= link_to "Person", "/person"  %></li>
             <% if user_signed_in? %>
               <li><%= link_to "Exit", destroy_user_session_path, method: :delete  %></li>
             <% else %>
