@@ -1,6 +1,6 @@
 class HistoriesController < ApplicationController
-  before_action :set_history, only: [:show, :edit, :update, :destroy, :nextStatus]
-
+  before_action :set_history, only: [:show, :edit, :update, :destroy, :nextStatus, :backStatus]
+  before_action :authenticate_user!
   # GET /histories
   # GET /histories.json
   def index
@@ -14,8 +14,26 @@ class HistoriesController < ApplicationController
   # GET /histories/1
   # GET /histories/1.json
   def show
+    @id = params[:id]
     @projects = Projeto.all
     @users = User.all
+    @tasks = Task.where("history_id = ?", @id)
+  end
+
+  # GET /histories/backStatus/1
+  def backStatus
+    @id = params[:id]
+    @history =  History.find(@id)
+
+    puts @history
+    if @history.status == 'accepted'
+      @history.update(:status => 'delivered')
+    elsif @history.status =='delivered'
+      @history.update(:status => 'started')
+    elsif @history.status =='started'
+      @history.update(:status => 'pending')
+    end
+    redirect_to action: "index"
   end
 
   # GET /histories/nextStatus/1
